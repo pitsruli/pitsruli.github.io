@@ -112,10 +112,15 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .hero-art .roof { fill: none; stroke: var(--snow); stroke-width: 7; stroke-linejoin: round; stroke-linecap: round; }
 .hero-art .house { fill: var(--ridge-near); }
 .hero-art .win { fill: var(--glow); }
-.hero-art .halo { fill: var(--glow); opacity: .22; }
+.hero-art .halo { opacity: .85; }
+.hero-art .halo-stop { stop-color: var(--glow); }
 .hero-art .sun { fill: var(--glow); opacity: .5; }
-@media (prefers-reduced-motion: no-preference) { .hero-art .halo { animation: breathe 5s ease-in-out infinite; transform-origin: 812px 352px; } }
-@keyframes breathe { 50% { opacity: .38; transform: scale(1.15); } }
+.hero-art .win { filter: drop-shadow(0 0 6px var(--glow)); }
+/* Opacity only (no transform), so the glow animates the same on phones and desktops. */
+@media (prefers-reduced-motion: no-preference) { .hero-art .halo { animation: glow 4s ease-in-out infinite; } }
+@keyframes glow { 0%, 100% { opacity: .7; } 50% { opacity: 1; } }
+/* On a phone the illustration is scaled down, so give the light more reach. */
+@media (max-width: 700px) { .hero-art .halo { r: 92px; } }
 .hero-copy { background: var(--bg); }
 .hero-copy .wrap { display: grid; grid-template-columns: 1.35fr 1fr; gap: 48px; padding-block: 48px 72px; align-items: end; }
 .hero h1 { font-size: clamp(2.1rem, 1.3rem + 3.4vw, 3.9rem); font-weight: 400; color: var(--pine); }
@@ -261,7 +266,8 @@ h1, h2, h3, .brand b, .facts dt, .price { -webkit-text-stroke: .028em currentCol
       <g class="tree">
         <path d="M80 400 l18 -58 l18 58 Z M118 398 l14 -44 l14 44 Z M960 372 l16 -52 l16 52 Z M995 376 l12 -40 l12 40 Z M1100 388 l18 -60 l18 60 Z M640 384 l12 -38 l12 38 Z"/>
       </g>
-      <circle class="halo" cx="812" cy="352" r="46"/>
+      <defs><radialGradient id="halo-grad"><stop offset="0" class="halo-stop" stop-opacity=".75"/><stop offset=".45" class="halo-stop" stop-opacity=".32"/><stop offset="1" class="halo-stop" stop-opacity="0"/></radialGradient></defs>
+      <circle class="halo" cx="812" cy="350" r="72" fill="url(#halo-grad)"/>
       <path class="house" d="M772 372 L812 300 L852 372 Z"/>
       <path class="roof" d="M766 374 L812 294 L858 374"/>
       <path class="win" d="M804 372 V358 a8 8 0 0 1 16 0 V372 Z"/>
