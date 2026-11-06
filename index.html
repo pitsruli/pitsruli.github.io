@@ -179,12 +179,18 @@ td .chip::before { content: ""; width: 9px; height: 9px; border-radius: 50%; bac
 .c-alp { color: var(--pine); } .c-mt { color: var(--moss); } .c-low { color: var(--bark); }
 
 /* Materials */
-.mat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0 40px; }
-.mat { padding: 20px 0; border-bottom: 1px solid var(--line); display: grid; gap: 6px; }
-.mat dt { font: 500 .74rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--moss); }
-.mat dd { margin: 0; }
-.mat dd b { font-family: var(--display); font-size: 1.1rem; color: var(--pine); display: block; }
-.mat dd span { font-size: .9rem; color: var(--muted); }
+.mat-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 0; }
+@media (max-width: 900px) { .mat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .mat-grid { grid-template-columns: 1fr; } }
+.mat { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 4px 16px; align-content: start; padding: 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; transition: border-color .2s ease, transform .2s ease; }
+.mat:hover { border-color: var(--moss); transform: translateY(-2px); }
+.mat dt { display: contents; }
+.mat-ico { grid-row: span 2; width: 48px; height: 48px; padding: 11px; border-radius: 12px; background: color-mix(in srgb, var(--glow) 16%, var(--surface)); fill: none; stroke: var(--pine); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.mat dt span { align-self: end; font: 500 .72rem/1.2 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--moss); }
+.mat dd { margin: 0; display: grid; gap: 4px; }
+.mat dd b { font-family: var(--display); font-size: 1.15rem; line-height: 1.3; color: var(--pine); font-weight: 400; -webkit-text-stroke: .02em currentColor; }
+.mat dd span { font-size: .9rem; line-height: 1.5; color: var(--muted); padding-top: 8px; border-top: 1px dashed var(--line); margin-top: 6px; }
+:lang(en) .mat dd b, :lang(ru) .mat dd b { font-weight: 500; -webkit-text-stroke: 0; }
 
 /* Contact */
 .contact { --c-bg: #1F3A2E; --c-ink: #F4F6F1; --c-muted: #B9C7B2; --c-line: #3D5A4B; --c-field: #27463A; background: var(--c-bg); color: var(--c-ink); }
@@ -368,12 +374,12 @@ h1, h2, h3, .brand b, .facts dt, .price { -webkit-text-stroke: .028em currentCol
         <p class="lead" data-i18n="materials.lead">ვიყენებთ გამოცდილ მასალებს, რომლებიც კოტეჯს თბილს, მშრალს და მყარს ხდის ათწლეულების განმავლობაში.</p>
       </div>
       <dl class="mat-grid">
-        <div class="mat"><dt data-i18n="mat1.dt">კარკასი</dt><dd><b data-i18n="mat1.b">საშრობში გამომშრალი ფიჭვი C24</b><span data-i18n="mat1.s">ანტისეპტიკით და ცეცხლდამცავით დამუშავებული</span></dd></div>
-        <div class="mat"><dt data-i18n="mat2.dt">საძირკველი</dt><dd><b data-i18n="mat2.b">ხრახნიანი ხიმინჯი ან ფილა</b><span data-i18n="mat2.s">ვარჩევთ ნიადაგისა და ფერდობის მიხედვით</span></dd></div>
-        <div class="mat"><dt data-i18n="mat3.dt">თბოიზოლაცია</dt><dd><b data-i18n="mat3.b">მინერალური ბამბა 200–250 მმ</b><span data-i18n="mat3.s">ორთქლ- და ქარდამცავი მემბრანებით</span></dd></div>
-        <div class="mat"><dt data-i18n="mat4.dt">ფანჯრები</dt><dd><b data-i18n="mat4.b">ორმაგი ან სამმაგი მინაპაკეტი</b><span data-i18n="mat4.s">ხის ან ალუმინის ჩარჩოთი</span></dd></div>
-        <div class="mat"><dt data-i18n="mat5.dt">სახურავი</dt><dd><b data-i18n="mat5.b">ლითონის სახურავი ან რბილი კრამიტი</b><span data-i18n="mat5.s">თოვლის შემაკავებლებით მთის რეგიონებში</span></dd></div>
-        <div class="mat"><dt data-i18n="mat6.dt">ფასადი</dt><dd><b data-i18n="mat6.b">თერმოხე, დამწვარი ხე ან ბლოკჰაუსი</b><span data-i18n="mat6.s">ქარხნულად შეღებილი, დაცული მზისა და ტენისგან</span></dd></div>
+        <div class="mat"><dt><svg class="mat-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21V10l9-7 9 7v11M3 13h18M7.5 21v-8M12 21v-8M16.5 21v-8"/></svg><span data-i18n="mat1.dt">კარკასი</span></dt><dd><b data-i18n="mat1.b">საშრობში გამომშრალი ფიჭვი C24</b><span data-i18n="mat1.s">ანტისეპტიკით და ცეცხლდამცავით დამუშავებული</span></dd></div>
+        <div class="mat"><dt><svg class="mat-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8h20v4H2zM6 12v8l1.5 2M12 12v8l1.5 2M18 12v8l1.5 2"/></svg><span data-i18n="mat2.dt">საძირკველი</span></dt><dd><b data-i18n="mat2.b">ხრახნიანი ხიმინჯი ან ფილა</b><span data-i18n="mat2.s">ვარჩევთ ნიადაგისა და ფერდობის მიხედვით</span></dd></div>
+        <div class="mat"><dt><svg class="mat-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6c3-2.5 6 2.5 9 0s6 2.5 9 0M3 12c3-2.5 6 2.5 9 0s6 2.5 9 0M3 18c3-2.5 6 2.5 9 0s6 2.5 9 0"/></svg><span data-i18n="mat3.dt">თბოიზოლაცია</span></dt><dd><b data-i18n="mat3.b">მინერალური ბამბა 200–250 მმ</b><span data-i18n="mat3.s">ორთქლ- და ქარდამცავი მემბრანებით</span></dd></div>
+        <div class="mat"><dt><svg class="mat-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M12 3v18M4 12h16"/></svg><span data-i18n="mat4.dt">ფანჯრები</span></dt><dd><b data-i18n="mat4.b">ორმაგი ან სამმაგი მინაპაკეტი</b><span data-i18n="mat4.s">ხის ან ალუმინის ჩარჩოთი</span></dd></div>
+        <div class="mat"><dt><svg class="mat-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12 12 3l10 9M5 9.5V21h14V9.5M9 21v-6h6v6"/></svg><span data-i18n="mat5.dt">სახურავი</span></dt><dd><b data-i18n="mat5.b">ლითონის სახურავი ან რბილი კრამიტი</b><span data-i18n="mat5.s">თოვლის შემაკავებლებით მთის რეგიონებში</span></dd></div>
+        <div class="mat"><dt><svg class="mat-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1.5"/><path d="M3 8h18M3 13h18M3 18h18M9 3v5M15 8v5M9 13v5"/></svg><span data-i18n="mat6.dt">ფასადი</span></dt><dd><b data-i18n="mat6.b">თერმოხე, დამწვარი ხე ან ბლოკჰაუსი</b><span data-i18n="mat6.s">ქარხნულად შეღებილი, დაცული მზისა და ტენისგან</span></dd></div>
       </dl>
     </div>
   </section>
