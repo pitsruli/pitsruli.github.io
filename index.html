@@ -217,6 +217,8 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: cent
 /* Thicken the single-weight heading font a little. */
 h1, h2, h3, .brand b, .facts dt, .price { -webkit-text-stroke: .028em currentColor; }
 
+:lang(ka) .brand small { font-size: .7rem; letter-spacing: .04em; }
+@media (max-width: 560px) { :lang(ka) .brand small { font-size: .64rem; } }
 /* English and Russian: the heading font has no Cyrillic, so both use Oswald (a similar narrow caps face). */
 :root:lang(en), :root:lang(ru) { --display: "Oswald", "Noto Sans", "Arial Narrow", sans-serif; --body: "Noto Sans", system-ui, sans-serif; }
 :lang(en) h1, :lang(en) h2, :lang(en) h3, :lang(ru) h1, :lang(ru) h2, :lang(ru) h3 { text-transform: uppercase; font-weight: 500; letter-spacing: .01em; -webkit-text-stroke: 0; }
@@ -230,7 +232,7 @@ h1, h2, h3, .brand b, .facts dt, .price { -webkit-text-stroke: .028em currentCol
   <div class="wrap">
     <a class="brand" href="#top" aria-label="ფიცრული — მთავარი" data-i18n-aria="brand.aria">
       <svg viewBox="0 0 120 124" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14 100 L60 18 L106 100" stroke-width="11"/><path d="M54 58 H66" stroke="var(--glow)" stroke-width="8"/><path d="M46 73 H74 M38 88 H82" stroke-width="8"/><path d="M4 112 H116" stroke-width="7"/></g></svg>
-      <span><b data-i18n="brand.name">ფიცრული</b><small data-i18n="brand.sub">COTTAGES</small></span>
+      <span><b data-i18n="brand.name">ფიცრული</b><small data-i18n="brand.sub">ხის კოტეჯები</small></span>
     </a>
     <nav class="nav" aria-label="მთავარი მენიუ" data-i18n-aria="nav.aria">
       <a href="#models" data-i18n="nav.models">მოდელები</a>

@@ -53,7 +53,7 @@ def main(serif_path, sans_path, out, intl_word_path=None, intl_tag_path=None):
     # Horizontal lockup: mark (120) + gap + wordmark + tagline
     def horizontal(ink, glow, tag_ink):
         word, ww = text_path(serif, "ფიცრული", 78, 150, 74)
-        tag, tw = text_path(sans, "კოტეჯები · COTTAGES", 15, 152, 112, tracking=0.12)
+        tag, tw = text_path(sans, "ხის კოტეჯები", 15, 152, 112, tracking=0.12)
         w = 150 + max(ww, tw) + 14
         body = mark(ink, glow) + f'<path d="{word}" fill="{ink}" stroke="{ink}" stroke-width="2.2" stroke-linejoin="round"/><path d="{tag}" fill="{tag_ink}"/>'
         return svg(w, 128, body, title)
@@ -63,10 +63,10 @@ def main(serif_path, sans_path, out, intl_word_path=None, intl_tag_path=None):
 
     # Vertical lockup
     word, ww = text_path(serif, "ფიცრული", 72, 0, 0)
-    tag, tw = text_path(sans, "კოტეჯები · COTTAGES", 14, 0, 0, tracking=0.12)
+    tag, tw = text_path(sans, "ხის კოტეჯები", 14, 0, 0, tracking=0.12)
     W = max(ww, tw, 140) + 40
     word, _ = text_path(serif, "ფიცრული", 72, (W - ww) / 2, 200)
-    tag, _ = text_path(sans, "კოტეჯები · COTTAGES", 14, (W - tw) / 2, 236, tracking=0.12)
+    tag, _ = text_path(sans, "ხის კოტეჯები", 14, (W - tw) / 2, 236, tracking=0.12)
     body = mark(PINE, GLOW, (W - 120) / 2, 8) + f'<path d="{word}" fill="{PINE}" stroke="{PINE}" stroke-width="2" stroke-linejoin="round"/><path d="{tag}" fill="{MOSS}"/>'
     open(f"{out}/pitsruli-logo-vertical.svg", "w").write(svg(W, 252, body, title))
 

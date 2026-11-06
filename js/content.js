@@ -105,7 +105,7 @@
       "ru": "Пицрули"
     },
     "brand.sub": {
-      "ka": "COTTAGES",
+      "ka": "ხის კოტეჯები",
       "en": "WOODEN COTTAGES",
       "ru": "ДЕРЕВЯННЫЕ КОТТЕДЖИ"
     },
