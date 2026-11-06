@@ -534,11 +534,6 @@
       "en": "© 2026 Pitsruli · Wooden cottage design and construction",
       "ru": "© 2026 Пицрули · Проектирование и строительство деревянных коттеджей"
     },
-    "footer.bb": {
-      "ka": "ბრენდბუქი",
-      "en": "Brand book",
-      "ru": "Брендбук"
-    },
     "form.name.ph": {
       "ka": "მაგ. ნინო",
       "en": "e.g. Nino",
